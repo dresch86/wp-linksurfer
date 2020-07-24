@@ -2,11 +2,17 @@
 
 This plugin scans posts for an Advanced Custom Field that contains a URL. The URL is then accessed via cURL to get a response code. If an error response code is encountered, a log entry is created to alert system admins of a broken link. The link checker requires the WP-CLI, so links can be checked using a system scheduling tool (i.e. cron, systemd, etc).
 
+## __Usage__
+### Requirements:
+* Root access
+* Wordpress
+* System scheduler (i.e. cron, systemd, etc)
+* WP-CLI
+* [Advanced Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/)
+
 ## __Build Instructions__
 ### Requirements:
 * NodeJS
-* WP-CLI
-* [Advanced Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/)
 * nps (global)
 * nps-utils (global)
 * _Optional: PNPM_

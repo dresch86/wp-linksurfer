@@ -1,0 +1,43 @@
+# ---> VisualStudioCode
+.settings
+.vscode
+
+
+# ---> Windows
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# ---> Linux
+*~
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# NodeJS
+node_modules/
+
+# Build directories
+build/
+dist/
+
+# Build files
+*.zip

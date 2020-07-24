@@ -1,0 +1,158 @@
+.linksurfer-vbox {
+    display: flex;
+    flex-direction: column;
+}
+
+.linksurfer-hbox {
+    display: flex;
+    flex-direction: row;
+}
+
+.linksurfer-emphasized-date {
+    color: blue;
+    font-weight: bold;
+}
+
+.linksurfer-hidden {
+    display: none;
+}
+
+.linksurfer-response {
+    padding: 5px;
+    display: none;
+}
+
+.linksurfer-response.linksurfer-show-result {
+    display: block;
+    font-weight: bold;
+    text-align: center;
+} 
+
+.linksurfer-response.linksurfer-show-result.linksurfer-show-result-error {
+    color: red;
+}
+
+.linksurfer-footnote {
+    font-size: 0.8rem;
+    font-weight: bold;
+    font-style: italic;
+    text-align: center;
+}
+
+#linksurfer-dashboard {
+    display: flex;
+    padding: 30px 0;
+    max-width: 700px;
+    flex-direction: column;
+}
+
+#linksurfer-admin-header {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+#linksurfer-admin-header > h1 {
+    margin: 0;
+    font-weight: initial;
+}
+
+#linksurfer-admin-header > a {
+    cursor: pointer;
+    color: #0073aa;
+    padding: 4px 8px;
+    margin-left: 5px;
+    font-weight: bold;
+    border-radius: 5px;
+    background: white;
+    text-decoration: none;
+    border: 1px solid lightgray;
+}
+
+#linksurfer-admin-header > a:hover {
+    color: white;
+    background: #00a0d2;
+}
+
+#linksurfer-settings-button {
+    cursor: pointer;
+    padding: 4px 8px;
+    color: #0073aa;
+    margin-left: 5px;
+    font-weight: bold;
+    border-radius: 3px;
+    background: #f7f7f7;
+    border: 1px solid #ccc;
+}
+
+#linksurfer-settings-button:hover {
+    color: white;
+    background: #00a0d2;
+    border-color: #008ec2;
+}
+
+#linksurfer-logs {
+    margin: 15px 0;
+    border-collapse: collapse;
+    border: 1px solid #8e8e8e;
+}
+
+#linksurfer-logs td {
+    color: #222;
+    padding: 5px 15px;
+    border-right: 1px solid #8e8e8e;
+}
+
+#linksurfer-logs > thead > tr {
+    background: #90bbff;
+}
+
+#linksurfer-logs > thead > tr > td {
+    font-weight: bold;
+    text-align: center;
+}
+
+#linksurfer-logs > tbody > tr:nth-child(odd) {
+    background:  #B4E5FF;
+}
+
+#linksurfer-logs > tbody > tr:nth-child(even) {
+    background: #CCCCCC;
+}
+
+#linksurfer-logs > tbody > tr > td:nth-child(2) {
+    text-align: center;
+}
+
+#linksurfer-logs input[type="checkbox"] {
+    margin: 0;
+}
+
+#linksurfer-logs > tbody > tr > td:nth-child(5) {
+    text-align: center;
+    vertical-align: middle;
+}
+
+#linksurfer_bulk_action_response {
+    width: 400px;;
+}
+
+#linksurfer_settings {
+    min-width: 400px;
+}
+
+#linksurfer_settings textarea {
+    width: 100%;
+}
+
+#linksurfer_settings input[type="text"] {
+    width: 100%;
+}
+
+#linksurfer_settings input[type="checkbox"] {
+    margin: 0;
+}
+
+input.button.action.linksurfer-doaction {
+    margin-left: 5px;
+}

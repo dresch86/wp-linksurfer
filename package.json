@@ -1,0 +1,35 @@
+{
+  "name": "linksurfer",
+  "version": "1.0.0",
+  "description": "A simple tool to check status codes for links in a custom post type with a custom field",
+  "main": "index.js",
+  "scripts": {
+    "start": "nps"
+  },
+  "author": "Daniel J. Resch",
+  "license": "GPL-3.0-or-later",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/autoprefixer": "^9.7.2",
+    "@types/node": "^14.0.23",
+    "archiver": "^4.0.2",
+    "autoprefixer": "^9.8.5",
+    "cssnano": "^4.1.10",
+    "esm": "^3.2.25",
+    "fs-extra": "^9.0.1",
+    "postcss": "^7.0.32",
+    "readdirp": "^3.4.0",
+    "rimraf": "^3.0.2",
+    "terser": "^4.8.0"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "> 1%",
+    "maintained node versions",
+    "not dead"
+  ],
+  "dirs": {
+    "build": "build",
+    "src": "src"
+  }
+}

@@ -1,0 +1,6 @@
+[Unit]
+Description=LinkSurfer Wordpress Plugin
+Requires=network-online.target mysql.service
+
+[Service]
+ExecStart=/usr/local/bin/wp linksurfer check_external_links

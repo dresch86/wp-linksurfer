@@ -61,8 +61,20 @@ if (defined('WP_CLI') && WP_CLI) {
 
         private function logHttpError($title, $url, $status) {
             global $wpdb;
-            $sql = $wpdb->prepare(('INSERT INTO ' . $this->linksurfer_log_table . '(`title`, `url`, `status`) VALUES (%s, %s, %d)'), $title, $url, $status);
-            $wpdb->query($sql);
+
+            // Check for duplicate entry to save space in the db
+            $sql = $wpdb->prepare(('SELECT `log_id` FROM ' . $this->linksurfer_log_table . ' WHERE `title` = %s AND `url` = %s AND `status` = %d'), $title, $url, $status);
+            $result = $wpdb->get_row($sql, ARRAY_A);
+
+            if ($result === null) {
+                // No entry exists so create one...
+                $sql = $wpdb->prepare(('INSERT INTO ' . $this->linksurfer_log_table . ' (`title`, `url`, `status`) VALUES (%s, %s, %d)'), $title, $url, $status);
+                $wpdb->query($sql);
+            } else {
+                // Entry exists so just update datetime
+                $wpdb->update($this->linksurfer_log_table, ['date' => wp_date('Y-m-d H:i:s')], ['log_id' => $result['log_id']]);
+                WP_CLI::log($title . '\'s URL still in an error state [log_id=' . $result['log_id'] . ']');
+            }
         }
 
         public function check_external_links() {
@@ -126,8 +138,8 @@ if (defined('WP_CLI') && WP_CLI) {
                                     $this->email_alerts[] = $result_to_html;
                                 }
 
-                                $this->logHttpError($title, $url, $http_status);
                                 WP_CLI::log('The link for ' . $title . ' appears to be broken [http_status=' . $http_status . ']');
+                                $this->logHttpError($title, $url, $http_status);
                             } 
     
                             // Pause for a second to prevent rapid requests from getting the server blacklisted

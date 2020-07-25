@@ -101,6 +101,7 @@ if (defined('WP_CLI') && WP_CLI) {
 
             $posts = new WP_Query(['post_type'=>$this->settings['post_type']]);
             WP_CLI::log('Checking external links...');
+            $links_checked = 0;
 
             if ($posts->have_posts()) {
                 $cURLRes = curl_init();
@@ -121,6 +122,7 @@ if (defined('WP_CLI') && WP_CLI) {
 
                             $this->cURLOpts[CURLOPT_URL] = $url;
                             curl_reset($cURLRes);
+                            ++$links_checked;
                             
                             curl_setopt_array($cURLRes, $this->cURLOpts);
                             $sOK = curl_exec($cURLRes);
@@ -141,7 +143,7 @@ if (defined('WP_CLI') && WP_CLI) {
                                 WP_CLI::log('The link for ' . $title . ' appears to be broken [http_status=' . $http_status . ']');
                                 $this->logHttpError($title, $url, $http_status);
                             } 
-    
+
                             // Pause for a second to prevent rapid requests from getting the server blacklisted
                             sleep(1);
                         }
@@ -157,7 +159,7 @@ if (defined('WP_CLI') && WP_CLI) {
             }
 
             wp_reset_query();
-            WP_CLI::log('Finished checking external links...');
+            WP_CLI::log('Finished checking ' . $links_checked . ' external link(s)...');
         }
     }
 

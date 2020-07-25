@@ -156,7 +156,7 @@ class LinkSurfer_Admin {
 				$dashboard_content .= '        <tr>' . "\n";
 				$dashboard_content .= '            <td>'.$log_entry['title'].'</td>' . "\n";
 				$dashboard_content .= '            <td>'.$log_entry['status'].'</td>' . "\n";
-				$dashboard_content .= '            <td><a href="'.$log_entry['url'].'">Check Site</a></td>' . "\n";
+				$dashboard_content .= '            <td><a href="'.$log_entry['url'].'">Visit Site</a></td>' . "\n";
 				$dashboard_content .= '            <td>'.date('M j, Y', strtotime($log_entry['date'])).'</td>' . "\n";
 				$dashboard_content .= '            <td><input type="checkbox" id="log_item_'.$log_entry['log_id'].'" name="log_items" value="'.$log_entry['log_id'].'"></td>' . "\n";
 				$dashboard_content .= '        </tr>' . "\n";
@@ -167,7 +167,7 @@ class LinkSurfer_Admin {
 
 			$hide_actions = '';
 		} else {
-			$dashboard_content = 'It looks like all the links are working properly! Check back periodically for updates in status.';
+			$dashboard_content = 'No broken links were discovered the last time LinkSurfer ran! Check back periodically for updates in status.';
 			$hide_actions = ' linksurfer-hidden';
 		}
 
@@ -210,7 +210,6 @@ class LinkSurfer_Admin {
 
 		if (strpos($current_screen->base, 'linksurfer') !== false) {
 			wp_enqueue_style($this->plugin_name . '-admin', (LINKSURFER_PLUGIN_URL . 'admin/css/linksurfer-admin.css'), array(), $this->version, 'all' );
-			wp_enqueue_style($this->plugin_name . '-icofonts', (LINKSURFER_PLUGIN_URL . 'admin/css/icofont.min.css'), array(), $this->version, 'all' );
 			wp_enqueue_style('wp-jquery-ui-dialog');
 		}
 	}

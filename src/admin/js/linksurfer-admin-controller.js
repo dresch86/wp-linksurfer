@@ -1,3 +1,21 @@
+/**
+ * LinkSurfer is a plugin for WordPress that checks for dead links in
+ * a custom field.
+ * 
+ * Copyright (C) 2020 by Daniel Resch
+ * 
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, version 3 of the License.
+ * 
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ * */
 function LinkSurferAdminController() {
     jQuery('#linksurfer-settings-button').click(this.showSettingsPanel.bind(this));
     jQuery('#linksurfer-doaction-bottom').click(this.doAction.bind(this));
@@ -114,6 +132,7 @@ LinkSurferAdminController.prototype.deleteLogEntries = function(idsToDel) {
             if (aResult[0] == 200) {
                 this.elBulkActionRespBox.text('Successfully deleted ' + aResult[1] + ' log entries!');
                 this.elBulkActionRespBox.addClass('linksurfer-show-result');
+                setTimeout(() => location.reload(true), 1000);
             } else if (aResult[0] == 400) {
                 this.elBulkActionRespBox.text('Error - Failed to delete logs!');
                 this.elBulkActionRespBox.addClass('linksurfer-show-result');
